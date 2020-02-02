@@ -1,17 +1,81 @@
 import React, { useState } from "react";
-// import { assign, interpret, Machine } from "xstate";
+import { assign, Machine } from "xstate";
+import { useMachine } from "../../utils/state-machine";
 import "./Payment.less";
 
-const Payment = props => {
+const stateMachine = Machine({
+  initial: "idle",
+  context: {
+    msg: "",
+  },
+  states: {
+    idle: {
+      on: {
+        SUBMIT: [
+          {
+            target: "loading",
+            cond: (ctx, event) => event.data.name !== "" && event.data.card !== "",
+          },
+          {
+            target: "error",
+          },
+        ],
+      },
+    },
+    loading: {
+      invoke: {
+        id: "doPayment",
+        src: () => fakePayment(),
+        onDone: {
+          target: "success",
+          actions: assign({ msg: (ctx, event) => event.data }),
+        },
+        onError: {
+          target: "error",
+          actions: assign({ msg: (ctx, event) => event.data }),
+        },
+      },
+    },
+    error: {
+      on: {
+        SUBMIT: {
+          target: "loading",
+          cond: (ctx, event) => event.data.name !== "" && event.data.card !== "",
+        },
+      },
+    },
+    success: {
+      type: "final",
+    },
+  },
+});
+
+function fakePayment() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const dice = Math.floor(Math.random() * Math.floor(2));
+
+      if (dice === 0) return resolve("Payment succeeded.");
+
+      return reject("Payment failed.");
+    }, 1000);
+  });
+}
+
+const Payment = () => {
+  const [machine, send] = useMachine(stateMachine);
+
   const [form, updateForm] = useState({
     name: "",
     card: "",
   });
+
+  console.log(machine.context);
   return (
     <div className="payment-page">
       <div>
         <div className="pill-container">
-          {/* <div className="state-pill">current state: {machine.value}</div>*/}
+          <div className="state-pill">current state: {machine.value}</div>
         </div>
 
         <div className="form-container">
@@ -19,25 +83,22 @@ const Payment = props => {
             <h2>State Machine Payment Form</h2>
           </div>
 
-          {/* {machine.matches("error") ? (*/}
-          {/*  <div className="alert error">*/}
-          {/*    {machine.context.msg*/}
-          {/*      ? machine.context.msg*/}
-          {/*      : "Oh no! No error message."}*/}
-          {/*  </div>*/}
-          {/* ) : null}*/}
+          {machine.matches("error") ? (
+            <div className="alert error">
+              {machine.context.msg ? machine.context.msg : "Unknown error"}
+            </div>
+          ) : null}
 
           <div className="form-body">
             <form
-            // onSubmit={e => {
-            //   e.preventDefault();
-            //   send({ type: "SUBMIT", data: { ...form } });
-            // }}
+              onSubmit={e => {
+                e.preventDefault();
+                send({ type: "SUBMIT", data: { ...form } });
+              }}
             >
               <div className="form-group">
-                <label htmlFor="NameOnCard">Name on card</label>
+                <label>Name on card</label>
                 <input
-                  id="NameOnCard"
                   className="form-control"
                   type="text"
                   maxLength="255"
@@ -46,9 +107,8 @@ const Payment = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="CreditCardNumber">Card number</label>
+                <label>Card number</label>
                 <input
-                  id="CreditCardNumber"
                   className="null card-image form-control"
                   type="text"
                   value={form.card}

@@ -17,6 +17,7 @@
     "react/prop-types": ["off"],
     "no-return-assign": ["off"],
     "require-jsdoc":["off"],
-    "no-invalid-this": 0
+    "no-invalid-this": 0,
+    "new-cap": ["off"]
   }
 }

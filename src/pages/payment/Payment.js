@@ -3,6 +3,42 @@ import { assign, Machine } from "xstate";
 import { useMachine } from "../../utils/state-machine";
 import "./Payment.less";
 
+// Paste this in https://xstate.js.org/viz/ for state chart visualization.
+
+// const stateMachine = Machine({
+//   id: 'Payment state machine',
+//   initial: "idle",
+//   states: {
+//     idle: {
+//       on: {
+//         SUBMIT: {
+//           target: "loading",
+//         },
+//       },
+//     },
+//     loading: {
+//       on: {
+//         RESOLVE: {
+//           target: "success",
+//         },
+//         REJECT: {
+//           target: "error",
+//         }
+//       }
+//     },
+//     error: {
+//       on: {
+//         SUBMIT: {
+//           target: "loading",
+//         },
+//       },
+//     },
+//     success: {
+//       type: "final",
+//     },
+//   },
+// });
+
 const stateMachine = Machine({
   initial: "idle",
   context: {
@@ -18,6 +54,7 @@ const stateMachine = Machine({
           },
           {
             target: "error",
+            actions: assign({ msg: "Please enter name and card details" }),
           },
         ],
       },
@@ -53,7 +90,7 @@ const stateMachine = Machine({
 function fakePayment() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const dice = Math.floor(Math.random() * Math.floor(2));
+      const dice = Math.floor(Math.random() * 2);
 
       if (dice === 0) return resolve("Payment succeeded.");
 
@@ -70,7 +107,6 @@ const Payment = () => {
     card: "",
   });
 
-  console.log(machine.context);
   return (
     <div className="payment-page">
       <div>

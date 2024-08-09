@@ -1,0 +1,7 @@
+.data-sources-module__emptyStateWrapper {
+  display: none !important;
+}
+
+.data-sources-module__noSelect:nth-of-type(1) .accordion-module__accordionItemHeaderWrapper .button-module__button {
+  display: none !important;
+}

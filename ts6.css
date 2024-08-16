@@ -1,0 +1,30 @@
+.pinboard-header-module__pinboardHeaderContainer {
+    background: transparent;
+    box-shadow: none;
+}
+
+.pinboard-header-module__pinboardHeader {
+    min-height: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.pinboard-header-module__pinboardHeader button {
+    background: white !important;
+}
+
+.pinboard-header-module__pinboardHeader button:hover {
+    background: rgba(0,0,0,0.1) !important;
+}
+
+.pinboard-edit-header-module__editActionHeader {
+    background: #ffe7be !important;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__tertiary, .pinboard-edit-header-module__editActionHeader button.button-module__tertiary p { 
+    color: black !important;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__tertiary:hover{
+    background: rgba(0,0,0,0.1) !important;
+}

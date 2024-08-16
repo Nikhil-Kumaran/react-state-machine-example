@@ -1,0 +1,26 @@
+.pinboard-header-module__pinboardHeaderContainer {
+    background: transparent;
+    box-shadow: none;
+}
+
+.pinboard-header-module__pinboardHeader {
+    min-height: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.pinboard-header-module__pinboardHeader button {
+    background: white;
+}
+
+.pinboard-edit-header-module__editActionHeader {
+    background: #ffe7be;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__tertiary, .pinboard-edit-header-module__editActionHeader button.button-module__tertiary p { 
+    color: black;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__primary {
+    color: white;
+}

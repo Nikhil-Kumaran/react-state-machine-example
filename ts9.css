@@ -1,0 +1,64 @@
+.pinboard-header-module__pinboardHeaderContainer {
+    background: transparent;
+    box-shadow: none;
+}
+
+.pinboard-header-module__pinboardHeader {
+    min-height: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.pinboard-header-module__pinboardHeader button {
+    background: white !important;
+}
+
+.pinboard-header-module__pinboardHeader button:hover {
+    background: rgba(0,0,0,0.1) !important;
+}
+
+.pinboard-edit-header-module__editActionHeader {
+    background: #ffe7be !important;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__tertiary, .pinboard-edit-header-module__editActionHeader button.button-module__tertiary p { 
+    color: rgba(0, 0, 0, 0.65) !important;
+}
+
+.pinboard-edit-header-module__editActionHeader button.button-module__tertiary:hover{
+    background: transparent !important;
+}
+
+.menu-module__item:hover {
+    background: #e6f7ff !important;
+}
+
+.pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper, .modal-module__footer .modal-module__action {
+    display: inline-block;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    height: 32px;
+    padding: 0 6px;
+    border-radius: 4px;
+    background-color: #fff !important;
+    border-color: #d9d9d9 !important;
+}
+.pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper:hover, .modal-module__footer .button-module__buttonWrapper:hover {
+    border-color: #40a9ff !important;
+}
+.pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper button.button-module__secondary, .pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper button.button-module__primary, .modal-module__footer .button-module__buttonWrapper button.button-module__secondary, .modal-module__footer .button-module__buttonWrapper button.button-module__primary {
+    background: transparent !important;
+}
+.button-module__buttonWrapper.pinboard-edit-header-module__buttonSpacer, .button-module__buttonWrapper.modal-module__actionBtn:nth-of-type(3) {
+    background: #1890ff !important;
+}
+.pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper button.button-module__tertiary:hover p, .pinboard-edit-header-module__buttonsContainer .button-module__buttonWrapper button.button-module__secondary:hover p {
+    color: #40a9ff;
+}
+.modal-module_footer .button-module__tertiary:hover {
+    background: transparent !important;
+}

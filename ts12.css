@@ -1,0 +1,53 @@
+.pinboard-header-module__pinboardHeaderContainer {
+    background: transparent;
+    box-shadow: none;
+}
+
+.pinboard-header-module__pinboardHeader {
+    min-height: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.pinboard-edit-header-module__editActionHeader {
+    background: #ffe7be !important;
+}
+
+.button-module__primary {
+    background: #1890ff !important;
+    border-radius: 4px !important;
+}
+.button-module__tertiary {
+    background: transparent;
+}
+.button-module__tertiary:hover {
+    background: transparent !important;
+}
+.button-module__secondary, .pinboard-edit-header-module__buttonsContainer .button-module__tertiary {
+    background: white !important;
+    border-radius: 4px !important;
+    border: 1px solid #d9d9d9;
+    padding: 6px 12px;
+    color: rgba(0, 0, 0, 0.65) !important;
+}
+.button-module__secondary:hover, .button-module__secondary:hover p, .pinboard-edit-header-module__buttonsContainer .button-module__tertiary:hover, .pinboard-edit-header-module__buttonsContainer .button-module__tertiary:hover p {
+    border-color: #40a9ff !important;
+    color: #40a9ff !important;
+}
+.pinboard-edit-header-module__buttonsContainer .button-module__tertiary p {
+    color: rgba(0, 0, 0, 0.65) !important;
+}
+.button-module__buttonWithIcon.button-module__secondary:not(.button-module__buttonWithText) {
+    border-radius: 100% !important;
+}
+
+.menu-module__item:hover {
+    background: #e6f7ff !important;
+}
+.column-config-section-module__sectionContainer .button-module__buttonWithIcon.button-module__secondary:not(.button-module__buttonWithText) {
+    padding: 0;
+}
+
+.pinboard-edit-header-module__headerLogo {
+  visibility: hidden;
+}

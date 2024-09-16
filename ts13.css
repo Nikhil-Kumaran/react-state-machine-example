@@ -79,3 +79,16 @@ body {
 .data-source-preview-module__dataSourcePreview p{
     padding: 0
 }
+.sage-search-bar-module__undoRedoResetWrapper button:hover {
+    color: #40a9ff !important;
+}
+.input-number-module__spinnerButtonsWrap {
+    position: relative;
+}
+.input-number-module__spinnerButtonsWrap button {
+    position: absolute;
+    width: 100%;
+}
+.input-number-module__spinnerButtonsWrap button:last-of-type {
+    top: 14px;
+}
